@@ -11,5 +11,7 @@ title: folder-note-brief
 ---
 
 ```dataviewjs
-	dv.view("90 - Templates/50 - JavaScript/dvCustomFileTree",{topFolder: ""})
+	const cur=dv.current()
+	
+	dv.view("90 - Templates/50 - JavaScript/dvCustomFileTree",{topFolder: cur.folder})
 ```

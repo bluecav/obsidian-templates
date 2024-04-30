@@ -1,4 +1,6 @@
 
+cur=dv.current()
+
 const last_entry = await dv.tryQuery(`
 	TABLE dateformat(file.ctime, "yyyy-MM-dd") as "Created", file.path, file.name
 	FROM "10 - Daily Notes"
@@ -26,7 +28,7 @@ if (last_values) {
 	
 } else {
 	const link_text = "No Prev Note"
-	const link_path = this.file.path
+	console.log(`this=${this.file}`)
 	//const link_prev = `[[${link_path}|link_text]]`
 	//const link_prev = dv.fileLink(this.file.path, false, link_text);
 	link_prev_text = "No Previous Note";
@@ -65,7 +67,6 @@ if (latest_values) {
 	
 } else {
 	const link_text = "No Next Note"
-	const link_path = this.file.path
 	//const link_prev = dv.fileLink(this.file.path, false, link_text);
 	link_next_text = "No Next Note";	
 	link_next = link_next_text
@@ -76,7 +77,9 @@ console.log(`Next Daily Link: ${link_next}`)
   
 
 
-let link_today=dv.current().file.name + "(" + dv.date(dv.current().file.cday).toFormat('yyyy-MM-dd') + ")";
+
+let link_today_text=dv.date(dv.current().file.cday).toFormat('yyyy-MM-dd');
+let link_today=dv.current().file.name + "(" + link_today_text + ")";
 
 dv.paragraph(`
 ~~~meta-bind-button
@@ -98,14 +101,13 @@ label: Current Daily Note
 id: Today
 hidden: true
 class: "button-43"
-tooltip: ""
+tooltip: "${link_today_text}"
 style: primary
 icon: calendar
 action:
-  type: updateMetadata
-  bindTarget: showFolderContents
-  evaluate: true
-  value: "x == null || !x ? true : false"
+  type: open
+  newTab: true
+  link: "${link_today}"
 ~~~ 
 
 ~~~meta-bind-button
@@ -122,10 +124,23 @@ action:
   link: "${link_next}"
 ~~~ 
 
+~~~meta-bind-button
+label: Show Current Folder Contents?
+id: showFolderContents
+hidden: true
+class: ""
+tooltip: ""
+style: primary
+action:
+  type: updateMetadata
+  bindTarget: showFolderContents
+  evaluate: true
+  value: "x == null || !x ? true : false"
+~~~ 
 
 \`BUTTON[Prev]\` \`BUTTON[Today]\` \`BUTTON[Next]\`
-
-
+<br>
+Show Folder Contents? \`INPUT[toggle:showFolderContents]\`
 `)
 
   

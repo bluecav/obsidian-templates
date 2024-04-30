@@ -1,10 +1,10 @@
 function generateRainbowColors(numColors) {
     let colors = [];
-    let saturation=85;
+    let saturation=15;
     if (dv.current().rainbowColorSaturation) {
 	    saturation=dv.current().rainbowColorSaturation;
     }
-    let luminosity=85;
+    let luminosity=50;
     if (dv.current().rainbowColorLuminosity) {
 	    luminosity=dv.current().rainbowColorLuminosity;
     }
@@ -32,7 +32,7 @@ function generateTableRainbowCSS(colors) {
 	colors.forEach((color, index) => {
 		colorText=rainbowColors[index];
 		css = css + `
-		.folder-note-brief .td-folder-row-left-${index} {
+		.folder-note-brief-pretty .td-folder-row-left-${index} {
 			display: block;
 			background-color: hsl(from ${colorText} h calc(s / 2) calc(l / 2));
 			border: ${rainbowColorBorderWidth}px solid; 
@@ -43,7 +43,7 @@ function generateTableRainbowCSS(colors) {
 			border-color: ${colorText};
 			color: var(--text-error);
 		}
-		.folder-note-brief .td-folder-row-right-${index} {
+		.folder-note-brief-pretty .td-folder-row-right-${index} {
 			display: block;
 			background-color: hsl(from ${colorText} h calc(s / 2) calc(l / 2));					
 			border: ${rainbowColorBorderWidth}px solid; 
@@ -54,7 +54,7 @@ function generateTableRainbowCSS(colors) {
 			border-color: ${colorText};
 			color: var(--background-modifier-success);
 		}
-		.folder-note-brief .td-row-left-${index} {
+		.folder-note-brief-pretty .td-row-left-${index} {
 			display: block;		
 			border: ${rainbowColorBorderWidth}px solid; 
 			border-radius: 0px;
@@ -65,7 +65,7 @@ function generateTableRainbowCSS(colors) {
 			padding-right: 0px;
 			border-color: ${colorText};
 		}
-		.folder-note-brief .td-row-right-${index} {
+		.folder-note-brief-pretty .td-row-right-${index} {
 			display: block;		
 			border: ${rainbowColorBorderWidth}px solid; 
 			border-radius: 0px;
@@ -76,7 +76,7 @@ function generateTableRainbowCSS(colors) {
 			padding-right: 0px;
 			border-color: ${colorText};
 		}
-		.folder-note-brief .td-lastrow-left-${index} {
+		.folder-note-brief-pretty .td-lastrow-left-${index} {
 			display: block;		
 			border: ${rainbowColorBorderWidth}px solid; 
 			border-radius: 0px 0px 0px 5px;
@@ -86,7 +86,7 @@ function generateTableRainbowCSS(colors) {
 			padding-right: 0px;
 			border-color: ${colorText};
 		}
-		.folder-note-brief .td-lastrow-right-${index} {
+		.folder-note-brief-pretty .td-lastrow-right-${index} {
 			display: block;		
 			border: ${rainbowColorBorderWidth}px solid; 
 			border-radius: 0px 0px 5px 0px;
@@ -258,26 +258,26 @@ dv.table(["Page/Folder","Info"], files.map(f => [
 
 
 const styles = rainbowCSS + `
-.folder-note-brief .table-view-table tbody.table-view-tbody tr td:first-child {
+.folder-note-brief-pretty .table-view-table tbody.table-view-tbody tr td:first-child {
 	width: 75%;
 	white-space: normal; 
 }
 
-.folder-note-brief .table-view-table tbody.table-view-tbody tr td {
+.folder-note-brief-pretty .table-view-table tbody.table-view-tbody tr td {
 	border: 0px solid var(--text-normal); 
 	padding: 0px;
 }
 
-.folder-note-brief .table-view-table  > tbody.table-view-tbody  > tr:hover {
+.folder-note-brief-pretty .table-view-table  > tbody.table-view-tbody  > tr:hover {
 	background-color: var(--interactive-hover) !important; 
 	padding: 0px;
 }
 
-.folder-note-brief .table-view-table {
+.folder-note-brief-pretty .table-view-table {
 	border: 0px; 
 }
 
-.folder-note-brief .info-row {
+.folder-note-brief-pretty .info-row {
   display: block;
   text-decoration: none;
   border: 2px solid var(--text-normal);
@@ -288,7 +288,7 @@ const styles = rainbowCSS + `
 }
 
 
-.folder-note-brief .table-view-table  > tbody.table-view-tbody .internal-link {
+.folder-note-brief-pretty .table-view-table  > tbody.table-view-tbody .internal-link {
 display: block;
   text-decoration: none;
   border: 2px solid var(--text-normal);
