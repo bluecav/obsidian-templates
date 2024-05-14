@@ -7,7 +7,7 @@ title: people-mention-page
 ## Backlinks:
 > [!info] Backlinks and Tags
 > ```query
-> block:(#therapy-template  OR @therapy-template)
+> block:(#<% tp.file.title.replace("@","") %>  OR @<% tp.file.title.replace("@","") %>)
 > ```
 
 ## Notes:

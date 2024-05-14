@@ -6,7 +6,7 @@ icon: FarNoteSticky
 meetingTemplate: 90 - Templates/10 - Notes/meeting-template.md
 showFolderContents: false
 tags: ""
-title: work-notes-template
+title: personal-journal-template
 ---
 
 # DATE:  `= this.creation_date`
@@ -76,6 +76,3 @@ return engine.markdown.create(buttonString);
 > ```
 
 ## Notes:
-
-
-
