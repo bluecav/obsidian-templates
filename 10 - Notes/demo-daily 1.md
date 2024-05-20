@@ -25,7 +25,10 @@ class: "button-43"
 tooltip: "Create Meeting"
 id: ""
 style: primary
-action:
+actions:
+  - type: templaterCreateNote
+    templateFile: "${meetingTemplate}"
+    fileName: "${newMeetingName}"
   type: insertIntoNote
   line: ${lastLine}
   value: ${meetingTemplate}
@@ -35,9 +38,4 @@ action:
 return engine.markdown.create(buttonString);
 ```
 
-
-# Metadata
-meetingName:: this could have been a slack thread - 2024-05-14
-type:: standup
-attendees:: 
 
