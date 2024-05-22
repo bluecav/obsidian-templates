@@ -67,6 +67,13 @@ return engine.markdown.create(buttonString);
 ```
 
 
+```dataviewjs
+dv.view("/90 - Templates/50 - JavaScript/meetingTable");
+dv.container.className += " dv-daily-meetings-summary"
+console.log("done")
+```
+
+
 >[!tasks]- Tasks
 >```tasks
 > not done
